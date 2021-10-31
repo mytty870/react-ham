@@ -20,7 +20,7 @@ export const Events = () => {
           </tr>
         </thead>
         <tbody>
-          { state.map((e, index) => (<Event key={index} e={e} />))}
+          { state.events.map((e, index) => (<Event key={index} e={e} />))}
 
         </tbody>
       </table>
