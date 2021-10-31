@@ -11,7 +11,7 @@ export const App = () => {
   return (
     <div className="container-fluid">
       <EventForm state={state} dispatch={dispatch} />
-      <Events />
+      <Events state={state} dispatch={dispatch} />
 
       
     </div>

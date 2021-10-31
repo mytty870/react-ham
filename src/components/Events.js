@@ -23,8 +23,3 @@ export const Events = (props) => {
     </>
   )
 }
-
-
-      
-
-
