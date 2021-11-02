@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import reducer from "../reducers"
 
 
@@ -11,12 +11,17 @@ import { OperationLogs } from './OperationLogs'
 
 
 export const App = () => {
-  const initialState = {
+  const appState = localStorage.getItem('appWithRedux')
+  const initialState = appState ? JSON.parse(appState): {
     events: [],
     operationLogs: []
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem('appWithRedux', JSON.stringify(state))
+  }, [state])
   
   return (
     <AppContext.Provider value={{ state, dispatch }}>
